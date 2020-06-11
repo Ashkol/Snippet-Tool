@@ -153,6 +153,7 @@ namespace Utils
             file.Close();
         }
 
+        #region Brushes
         private static Brush GetBrushColor(int number)
         {
             if (number == 1)
@@ -196,5 +197,6 @@ namespace Utils
             else
                 return MainWindow.BrushColor.Red;
         }
+        #endregion
     }
 }

@@ -457,8 +457,54 @@ namespace Snippet_Tool
 
         #endregion
 
-        #region Unused Methods
+        #region Brushes
+        private BrushColor GetBrushColorEnum(Brush brush)
+        {
+            if (brush == Brushes.Green)
+                return BrushColor.Green;
+            if (brush == Brushes.Blue)
+                return BrushColor.Blue;
+            else
+                return BrushColor.Red;
+        }
 
+        private Brush GetBrushColor(BrushColor enumerated)
+        {
+            if (enumerated == BrushColor.Green)
+                return Brushes.Green;
+            if (enumerated == BrushColor.Blue)
+                return Brushes.Blue;
+            else
+                return Brushes.Red;
+        }
+
+        private SolidColorBrush GetBrushColorFill(BrushColor enumerated)
+        {
+            SolidColorBrush brush = new SolidColorBrush();
+            brush.Opacity = 0.7f;
+            switch (enumerated)
+            {
+                case BrushColor.Red:
+                    brush.Color = Color.FromArgb(255, 255, 0, 0);
+                    break;
+                case BrushColor.Green:
+                    brush.Color = Color.FromArgb(255, 0, 255, 0);
+                    break;
+                case BrushColor.Blue:
+                    brush.Color = Color.FromArgb(255, 0, 0, 255);
+                    break;
+                default:
+                    brush.Color = Color.FromArgb(255, 0, 0, 0);
+                    brush.Opacity = 0.7;
+                    break;
+            }
+
+            return brush;
+        }
+        #endregion
+
+        #region Unused Methods
+        // Possible further use, not necessary for assignment
         private void MnItmSaveAllCutImage_Click(object sender, RoutedEventArgs e)
         {
             int i = 1;
@@ -522,49 +568,5 @@ namespace Snippet_Tool
         }
 
         #endregion
-
-        private BrushColor GetBrushColorEnum(Brush brush)
-        {
-            if (brush == Brushes.Green)
-                return BrushColor.Green;
-            if (brush == Brushes.Blue)
-                return BrushColor.Blue;
-            else
-                return BrushColor.Red;
-        }
-
-        private Brush GetBrushColor(BrushColor enumerated)
-        {
-            if (enumerated == BrushColor.Green)
-                return Brushes.Green;
-            if (enumerated == BrushColor.Blue)
-                return Brushes.Blue;
-            else
-                return Brushes.Red;
-        }
-
-        private SolidColorBrush GetBrushColorFill(BrushColor enumerated)
-        {
-            SolidColorBrush brush = new SolidColorBrush();
-            brush.Opacity = 0.7f;
-            switch (enumerated)
-            {
-                case BrushColor.Red:
-                    brush.Color = Color.FromArgb(255, 255, 0, 0);
-                    break;
-                case BrushColor.Green:
-                    brush.Color = Color.FromArgb(255, 0, 255, 0);
-                    break;
-                case BrushColor.Blue:
-                    brush.Color = Color.FromArgb(255, 0, 0, 255);
-                    break;
-                default:
-                    brush.Color = Color.FromArgb(255, 0, 0, 0);
-                    brush.Opacity = 0.7;
-                    break;
-            }
-
-            return brush;
-        }
     }
 }
